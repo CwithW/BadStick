@@ -2,7 +2,7 @@ name: Build client
 run-name: Build client
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Build-Client:
     runs-on: ubuntu-22.04
     steps:
       - name: "Clone front"
@@ -15,7 +15,7 @@ jobs:
         run: |
             npm install
             npm run build
-      - name: Check out this
+      - name: Clone this
         uses: actions/checkout@v3
         with:
           repository: ${{ github.repository }}
@@ -27,14 +27,9 @@ jobs:
               make
               cp -r ${{ github.workspace }}/front/dist ${{ github.workspace }}/client/dist/public
               cd ${{ github.workspace }}/client/ && tar -czvf ${{ github.workspace }}/dist.tgz dist
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-          ls ${{ github.workspace }}/front
-          ls ${{ github.workspace }}/client
       - name: Make artifact
         uses: actions/upload-artifact@v3
         with:
-          name: dist
+          name: dist.zip
           path: ${{ github.workspace }}/dist.tgz
       - run: echo "🍏 This job's status is ${{ job.status }}."
