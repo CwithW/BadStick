@@ -1,0 +1,24 @@
+{
+    "gadget": {
+        "HidGadgetDeviceFile": "/dev/hidg0"
+    },
+    "relay": {
+        "ServerWebsocketUrl": "",
+        "ServerAuthKey": ""
+    },
+    "device": {
+        "DeviceId": "123456",
+        "scripts": [
+            {
+                "ScriptName": "example_init_4g_modem",
+                "ScriptContent": "echo i am init 4g modem, i should do nmcli xxxx",
+                "ScriptRunOn": "boot"
+            },
+            {
+                "ScriptName": "example_stop_4g_modem",
+                "ScriptContent": "echo i am stop 4g modem, i should do nmcli yyyy",
+                "ScriptRunOn": "shutdown"
+            }
+        ]
+    }
+}
