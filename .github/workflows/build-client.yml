@@ -15,11 +15,20 @@ jobs:
         run: |
             npm install
             npm run build
-      - name: Check out repository code
+      - name: Check out this
         uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+        with:
+          repository: ${{ github.repository }}
+          path: ${{ github.workspace }}/client
+      - name: "Build this"
+        working-directory: ${{ github.workspace }}/client
+        run: |
+              npm install
+              make
+              cp -r ${{ github.workspace }}/front/dist/* ${{ github.workspace }}/client/public/
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+          ls ${{ github.workspace }}/front
+          ls ${{ github.workspace }}/client
       - run: echo "🍏 This job's status is ${{ job.status }}."
