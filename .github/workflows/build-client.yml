@@ -25,10 +25,16 @@ jobs:
         run: |
               npm install
               make
-              cp -r ${{ github.workspace }}/front/dist/* ${{ github.workspace }}/client/public/
+              cp -r ${{ github.workspace }}/front/dist ${{ github.workspace }}/client/dist/public
+              cd ${{ github.workspace }}/client/ && tar -czvf ${{ github.workspace }}/dist.tgz dist
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
           ls ${{ github.workspace }}/front
           ls ${{ github.workspace }}/client
+      - name: Make artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: ${{ github.workspace }}/dist.tgz
       - run: echo "🍏 This job's status is ${{ job.status }}."
