@@ -27,9 +27,11 @@ jobs:
               make
               cp -r ${{ github.workspace }}/front/dist ${{ github.workspace }}/client/dist/public
               cd ${{ github.workspace }}/client/ && tar -czvf ${{ github.workspace }}/dist.tgz dist
+              cp ${{ github.workspace }}/client/extra/install_script.sh ${{ github.workspace }}/
       - name: Make artifact
         uses: actions/upload-artifact@v3
         with:
-          name: dist.zip
-          path: ${{ github.workspace }}/dist.tgz
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          name: dist
+          path: |
+            ${{ github.workspace }}/dist.tgz
+            ${{ github.workspace }}/install_script.sh
