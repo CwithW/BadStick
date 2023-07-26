@@ -8,7 +8,7 @@ Use generic arm linux device, such as an Snapdragon 410 UFI stick, as an BadUsb 
 
 2. Connect your device to an WiFi network or configure it as an Wifi Hotspot
 
-3. Download NodeJS `https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-arm64.tar.xz`
+3. Download NodeJS `https://nodejs.org/dist/v18.15.0/node-v18.15.0-linux-arm64.tar.xz`
 
 4. Download from release page and extract, upload everything and the NodeJS tar.xz to your device
 
