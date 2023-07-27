@@ -10,7 +10,7 @@ Use generic arm linux device, such as an Snapdragon 410 UFI stick, as an BadUsb 
 
 3. Download NodeJS `https://nodejs.org/dist/v18.15.0/node-v18.15.0-linux-arm64.tar.xz`
 
-4. Download from release page and extract, upload everything and the NodeJS tar.xz to your device
+4. Download from release page and extract, upload everything and the `node-v18.15.0-linux-arm64.tar.xz` to your device
 
 5. SSH into your device and do `sh install.sh`
    
@@ -23,3 +23,15 @@ It is possible to use an relay server so you can access your device from 4G netw
 ## Scripting
 
 It is possible to setup scripts in the `config.json` file. Scripts can be used to setup usb gadgetfs or enable 4G modem.
+
+## Implemented features
+
+- [x] Keyboard emulation
+- [ ] Keyboard emulation with modifiers ( win key, ctrl, alt, shift )
+- [ ] Mouse emulation
+- [ ] Ethernet emulation, packet sniffing (RNDIS)
+- [x] Web interface for both standalone and relay mode
+- [ ] Relay server
+- [x] Relay client
+- [x] Execute commands on device for management
+- [ ] Scripting
